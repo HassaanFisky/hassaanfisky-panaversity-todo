@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hackathon-2
+  labels:
+    app.kubernetes.io/name: hackathon-2
+    dapr.io/enabled: "true"

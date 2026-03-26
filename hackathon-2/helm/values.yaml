@@ -1,0 +1,47 @@
+replicaCount: 2
+
+backend:
+  image:
+    repository: YOUR_REGISTRY/hackathon-2-backend
+    tag: latest
+    pullPolicy: Always
+  service:
+    port: 80
+    targetPort: 8000
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
+  env:
+    ALLOWED_ORIGINS: "http://localhost:3000"
+
+frontend:
+  image:
+    repository: YOUR_REGISTRY/hackathon-2-frontend
+    tag: latest
+    pullPolicy: Always
+  service:
+    port: 80
+    targetPort: 3000
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
+
+ingress:
+  enabled: true
+  host: todo.local
+  className: nginx
+
+secrets:
+  DATABASE_URL: ""
+  BETTER_AUTH_SECRET: ""
+  GROQ_API_KEY: ""
+  SUPABASE_URL: ""
+  SUPABASE_KEY: ""
