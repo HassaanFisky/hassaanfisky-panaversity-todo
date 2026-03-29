@@ -1,0 +1,79 @@
+﻿
+> hackathon-2-frontend@2.0.0 build
+> next build
+
+node.exe :  ΓÜá Warning: Next.js inferred 
+your workspace root, but it may not be 
+correct.
+At C:\Users\fisky\AppData\Roaming\npm\npm.
+ps1:24 char:5
++     & "node$exe"  "$basedir/node_modules
+/npm/bin/npm-cli.js" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecifie 
+   d: ( ΓÜá Warning: N...not be correct.  
+  :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeComma 
+   ndError
+ 
+ We detected multiple lockfiles and 
+selected the directory of 
+E:\panaversity\package-lock.json as the 
+root directory.
+ To silence this warning, set 
+`outputFileTracingRoot` in your Next.js 
+config, or consider removing one of the 
+lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-ref
+erence/config/next-config-js/output#caveat
+s for more information.
+ Detected additional lockfiles: 
+   * E:\panaversity\hackathon-2-todo\hacka
+thon-2\frontend\package-lock.json
+
+   Γû▓ Next.js 15.5.14
+   - Environments: .env.local
+   - Experiments (use with caution):
+     ┬╖ serverActions
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/chat/page.tsx
+Module not found: Can't resolve 
+'@/lib/auth-client'
+
+https://nextjs.org/docs/messages/module-no
+t-found
+
+./app/chat/page.tsx
+Module not found: Can't resolve 
+'@/components/Navbar'
+
+https://nextjs.org/docs/messages/module-no
+t-found
+
+./app/chat/page.tsx
+Module not found: Can't resolve 
+'@/components/ChatMessage'
+
+https://nextjs.org/docs/messages/module-no
+t-found
+
+./app/chat/page.tsx
+Module not found: Can't resolve 
+'@/components/ChatSidebar'
+
+https://nextjs.org/docs/messages/module-no
+t-found
+
+./app/dashboard/page.tsx
+Module not found: Can't resolve 
+'@/lib/auth-client'
+
+https://nextjs.org/docs/messages/module-no
+t-found
+
+
+> Build failed because of webpack errors

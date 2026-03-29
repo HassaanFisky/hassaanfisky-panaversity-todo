@@ -8,112 +8,99 @@ import { Navbar } from "@/components/Navbar";
 const features = [
   {
     icon: CheckCircle2,
-    title: "Smart Task Management",
-    desc: "Add, edit, prioritise, and track tasks with a clean, distraction-free UI.",
+    title: "Editorial Tasking",
+    desc: "Manage your professional obligations with a refined, distraction-free interface.",
   },
   {
     icon: Sparkles,
-    title: "AI Chat Assistant",
-    desc: "Talk to your task list. Ask Groq-powered AI to add, complete, or summarise tasks.",
+    title: "AI Synthesis",
+    desc: "Communicate with your productivity stack via advanced Groq-powered intelligence.",
   },
   {
     icon: Zap,
-    title: "Keyboard-First",
-    desc: "Press N to add a task, Ctrl+Enter to send a chat message — built for power users.",
+    title: "Scholar Rhythm",
+    desc: "Optimized for deep work with keyboard-first navigation and rapid command entry.",
   },
   {
     icon: ShieldCheck,
-    title: "Secure by Default",
-    desc: "JWT-based auth, per-user data isolation, and a hardened FastAPI backend.",
+    title: "Secure Archive",
+    desc: "Production-grade encryption with hardened FastAPI backend and JWT isolation.",
   },
 ];
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--bg-base)]">
+    <div className="flex min-h-screen flex-col bg-bg-base relative">
       <Navbar />
 
       {/* Hero Section */}
-      <main className="flex-1 overflow-hidden">
-        <section className="relative min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-12">
-          {/* Radial Gradients */}
-          <div 
-            className="absolute inset-0 z-0 pointer-events-none"
-            style={{
-              background: `
-                radial-gradient(ellipse 900px 600px at 50% -100px, rgba(212,165,116,0.08), transparent 70%),
-                radial-gradient(ellipse 600px 400px at 80% 80%, rgba(61,214,140,0.04), transparent 60%),
-                var(--bg-base)`
-            }}
-          />
-
-          {/* Noise Texture */}
-          <svg className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-[0.035]">
-            <filter id="noise">
-              <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-              <feColorMatrix type="saturate" values="0"/>
-            </filter>
-            <rect width="100%" height="100%" filter="url(#noise)"/>
-          </svg>
-
+      <main className="flex-1">
+        <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-20 px-6">
           <MotionDiv 
             variants={fadeUp}
             initial="initial"
             animate="animate"
-            className="relative z-10 container mx-auto px-4 text-center max-w-4xl"
+            className="relative z-10 w-full max-w-5xl mx-auto text-center"
           >
-            <div className="text-[11px] font-medium tracking-[0.08em] uppercase text-[var(--text-muted)] mb-6">
-              Panaversity Hackathon II
+            <div className="flex items-center justify-center gap-4 mb-12">
+              <div className="h-[1px] w-8 bg-accent/30 rounded-full" />
+              <span className="text-[10px] font-bold text-accent uppercase tracking-[0.4em]">Panaversity OpenTask v2.0</span>
+              <div className="h-[1px] w-8 bg-accent/30 rounded-full" />
             </div>
             
-            <h1 className="text-[52px] font-semibold tracking-[-0.03em] leading-[1.1] text-[var(--text-primary)] mb-8">
-              Tasks done right.
+            <h1 className="text-5xl md:text-[88px] font-serif font-medium tracking-tight leading-[1.02] text-text-primary mb-12">
+              Deep Work. 
               <br />
-              <span style={{ color: "var(--accent)" }}>Every single time.</span>
+              <span className="text-accent italic">Perfected.</span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-xl text-[17px] text-[var(--text-secondary)] font-medium leading-relaxed mb-10">
-              A world-class task manager with JWT auth, priority badges, AI chat, and cloud sync — built on Next.js 15, FastAPI, and Groq.
+            <p className="mx-auto max-w-2xl text-xl md:text-2xl text-text-muted font-medium leading-[1.6] mb-16">
+              A high-fidelity task management system designed for technical scholars. Built with Next.js 15, FastAPI, and accelerated by Groq LPU.
             </p>
 
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/sign-up"
-                className="bg-[var(--accent)] text-[#0A0A0A] font-medium text-[13px] px-6 py-2.5 rounded-[var(--radius-sm)] hover:brightness-110 active:scale-[0.97] transition-all duration-150 flex items-center gap-2 shadow-sm"
+                className="btn-tactile btn-accent px-10 py-4 font-bold text-[12px] uppercase tracking-widest flex items-center gap-3 rounded-lg shadow-sm"
               >
-                Get started <ArrowRight className="h-4 w-4" />
+                Launch Protocol <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/sign-in"
-                className="bg-transparent border border-[var(--border-muted)] text-[var(--text-primary)] text-[13px] font-medium px-6 py-2.5 rounded-[var(--radius-sm)] hover:border-[var(--border-active)] hover:bg-[var(--bg-elevated)] transition-all duration-150"
+                className="btn-tactile border border-fine bg-white text-text-primary px-10 py-4 font-bold text-[12px] uppercase tracking-widest rounded-lg hover:border-accent/40"
               >
-                Sign in
+                Access Archive
               </Link>
             </div>
           </MotionDiv>
         </section>
 
         {/* Features Grids */}
-        <section className="relative z-10 py-24 bg-[var(--bg-base)]">
-          <div className="container mx-auto px-4">
+        <section className="relative z-10 py-32 border-t border-fine bg-white/50 backdrop-blur-sm">
+          <div className="container mx-auto px-6">
+            <div className="flex items-center gap-6 mb-20">
+              <h2 className="text-[11px] font-bold text-text-muted uppercase tracking-[0.3em] whitespace-nowrap">Core Capabilities</h2>
+              <div className="h-[0.8px] flex-1 bg-border-fine" />
+            </div>
+
             <MotionDiv 
               variants={stagger}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true, margin: "-100px" }}
-              className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+              className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
             >
-              {features.map(({ icon: Icon, title, desc }, i) => (
+              {features.map(({ icon: Icon, title, desc }) => (
                 <MotionDiv
                   key={title}
                   variants={fadeUp}
-                  className="rounded-[var(--radius-md)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-[var(--shadow-card)] hover:border-[var(--border-muted)] hover:-translate-y-[1px] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  className="card-humanist p-10 group"
                 >
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--accent-dim)]">
-                    <Icon className="h-5 w-5 text-[var(--accent)]" />
+                  <div className="mb-8 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-bg-base text-accent border border-fine group-hover:bg-accent/10 transition-colors">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mb-2 font-semibold text-[15px] text-[var(--text-primary)]">{title}</h3>
-                  <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed">{desc}</p>
+                  <h3 className="mb-4 font-serif text-2xl font-medium text-text-primary group-hover:text-accent transition-colors">{title}</h3>
+                  <p className="text-[14px] text-text-muted leading-relaxed font-medium">{desc}</p>
                 </MotionDiv>
               ))}
             </MotionDiv>
@@ -122,11 +109,18 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[var(--border-subtle)] py-12 bg-[var(--bg-base)] text-center">
-        <div className="text-[11px] font-medium tracking-[0.08em] uppercase text-[var(--text-muted)]">
-          Built for Panaversity · Next.js 15 · FastAPI · Groq
+      <footer className="border-t border-fine py-16 bg-bg-base text-center overflow-hidden">
+        <div className="container mx-auto px-6 flex flex-col items-center gap-8">
+          <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-text-muted">
+            Panaversity Hackathon II · Digital Publication
+          </div>
+          <div className="h-[1px] w-24 bg-border-fine" />
+          <p className="text-[12px] font-serif italic text-text-muted max-w-md">
+            "The secret of getting ahead is getting started."
+          </p>
         </div>
       </footer>
     </div>
   );
 }
+
