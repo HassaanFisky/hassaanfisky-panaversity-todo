@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════
+   PANAVERSITY ECOSYSTEM — Master Design System v8.0
+   Unified Shell — H2: Evolution of To-Do
+   "High-Fidelity Humanist" — Hassaan AI Architect
+   
+   AUTHENTICITY MATTERS: 
+   - No cheap solid colors. Only deep, multi-layered mesh gradients.
+   - WCAG AAA contrast for absolute legibility.
+   - Hardware-accelerated transitions for Apple-level smoothness.
+═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Core Foundation - Light */
+  --bg-base: #FCFAF8;
+  --bg-surface: #F0EBE1;
+  --bg-elevated: #EBE5D8;
+  --bg-mesh: radial-gradient(at 0% 0%, hsla(20, 30%, 95%, 1) 0, transparent 50%), 
+             radial-gradient(at 50% 0%, hsla(10, 20%, 90%, 1) 0, transparent 50%), 
+             radial-gradient(at 100% 0%, hsla(30, 40%, 92%, 1) 0, transparent 50%);
+  
+  --text-primary: #38312E;
+  --text-secondary: #57534E;
+  --text-muted: #8A857D;
+  
+  --accent: #D97757;
+  --accent-dim: rgba(217, 119, 87, 0.08);
+  --accent-soft: rgba(217, 119, 87, 0.12);
+  --border-fine: #E5E0D8;
+  --border-muted: #DED8CD;
+  --border-active: #D97757;
+  --radius-sm:   0.75rem;
+  --radius-md:   1.25rem;
+  --radius-lg:   2rem;
+  --shadow-card: 0 4px 16px -4px rgba(56, 49, 46, 0.08), 0 0 0 1px var(--border-fine);
+  --shadow-modal:0 24px 64px -12px rgba(56, 49, 46, 0.12), 0 0 0 1px var(--border-fine);
+  --success:     #3D9970;
+  --error:       #D95757;
+
+  --glass-bg: rgba(252, 250, 248, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.4);
+
+  --font-serif: var(--font-lora), "Lora", serif;
+  --font-sans: var(--font-inter), "Inter", sans-serif;
+
+  /* Feature Defaults */
+  --weather-bg-overlay: transparent;
+  --lightning-opacity: 0;
+  --grain-opacity: 0.04;
+  --transition-speed: 800ms;
+}
+
+.dark, [data-theme='dark'] {
+  --bg-base: #0A0A0A;
+  --bg-surface: #141414;
+  --bg-elevated: #1F1F1F;
+  --bg-mesh: radial-gradient(at 0% 0%, hsla(220, 20%, 5%, 1) 0, transparent 50%),
+             radial-gradient(at 50% 0%, hsla(280, 20%, 8%, 1) 0, transparent 50%),
+             radial-gradient(at 100% 0%, hsla(320, 20%, 5%, 1) 0, transparent 50%);
+
+  --text-primary: #FAF9F6;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+
+  --accent: #E58A6D;
+  --accent-dim: rgba(229, 138, 109, 0.1);
+  --accent-soft: rgba(229, 138, 109, 0.15);
+  --border-fine: #262626;
+  --border-muted: #333333;
+  --border-active: #E58A6D;
+  --shadow-card:  0 8px 32px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-fine);
+  --shadow-modal: 0 32px 80px -16px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border-fine);
+  --success:      #6EE7B7;
+  --error:        #EF4444;
+
+  --glass-bg: rgba(10, 10, 10, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --grain-opacity: 0.08;
+}
+
+/* ─── WEATHER THEMES (GLOBAL SYNC) ─── */
+[data-weather='clear'] {
+  --weather-bg-overlay: transparent;
+}
+
+[data-weather='snow'] {
+  --weather-bg-overlay: rgba(255, 255, 255, 0.02);
+  --accent:             #A5C9D9;
+  --accent-soft:        rgba(165, 201, 217, 0.15);
+}
+
+[data-weather='rain'] {
+  --bg-base:            #060d18;
+  --bg-surface:         #0d1a2e;
+  --bg-elevated:        #081525;
+  --bg-mesh:
+    radial-gradient(at 0%   0%, hsla(220, 55%, 5%, 1)  0, transparent 50%),
+    radial-gradient(at 50%  0%, hsla(230, 45%, 8%, 1)  0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210, 55%, 6%, 1)  0, transparent 50%);
+  --weather-bg-overlay: transparent;
+  --text-primary:       #D8ECF8;
+  --text-secondary:     #8AAAC8;
+  --text-muted:         #506070;
+  --accent:             #6B9FD4;
+  --accent-soft:        rgba(107, 159, 212, 0.15);
+  --glass-bg:           rgba(6, 13, 24, 0.72);
+  --glass-border:       rgba(100, 140, 200, 0.15);
+}
+
+[data-weather='storm'] {
+  --bg-base:            #000000;
+  --bg-surface:         #0d0d0d;
+  --bg-elevated:        #080808;
+  --bg-mesh:            none;
+  --weather-bg-overlay: transparent;
+  --text-primary:       #FFFFFF;
+  --text-secondary:     #BCC8DC;
+  --text-muted:         #8090B8;
+  --accent:             #9BA8FF;
+  --accent-soft:        rgba(155, 168, 255, 0.18);
+  --glass-bg:           rgba(0, 0, 0, 0.72);
+  --glass-border:       rgba(155, 168, 255, 0.18);
+}
+
+[data-weather='sunny'] {
+  --bg-base:            #1a0900;
+  --bg-surface:         #2a1505;
+  --bg-elevated:        #1f1004;
+  --bg-mesh:
+    radial-gradient(at 0%   0%, hsla(22, 75%, 10%, 1) 0, transparent 50%),
+    radial-gradient(at 50%  0%, hsla(32, 65%, 16%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(18, 55%, 8%,  1) 0, transparent 50%);
+  --weather-bg-overlay: transparent;
+  --text-primary:       #FFF5E0;
+  --text-secondary:     #F0D0A0;
+  --text-muted:         #A07840;
+  --accent:             #FF8C42;
+  --accent-soft:        rgba(255, 140, 66, 0.18);
+  --glass-bg:           rgba(26, 9, 0, 0.72);
+  --glass-border:       rgba(255, 160, 80, 0.20);
+}
+
+[data-weather='cloudy'] {
+  --bg-base:            #0e1116;
+  --bg-surface:         #141820;
+  --bg-elevated:        #0f1319;
+  --weather-bg-overlay: rgba(0, 0, 0, 0.08);
+  --text-secondary:     #94A3B8;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-base);
+    background-image: var(--bg-mesh);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition:
+      background-color var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1),
+      color            var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  main {
+    position: relative;
+    z-index: 10;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: var(--grain-opacity);
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
+@layer components {
+  .glass-apple {
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px -8px rgba(0,0,0,0.1);
+  }
+
+  .glass-companion {
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    background-color: rgba(252, 250, 248, 0.88);
+    border: 1px solid rgba(56, 49, 46, 0.06);
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .dark .glass-companion,
+  [data-theme='dark'] .glass-companion {
+    background-color: rgba(14, 14, 14, 0.92);
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+
+  .card-humanist {
+    @apply bg-(--bg-surface) border border-(--border-fine) rounded-[2rem] p-6 transition-all duration-400;
+    box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.06), 0 6px 16px -4px rgba(0, 0, 0, 0.09);
+  }
+  .card-humanist:hover {
+    @apply -translate-y-1 border-(--accent);
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.06), 0 12px 28px -6px rgba(0, 0, 0, 0.12);
+  }
+
+  .prose-editorial {
+    font-family: var(--font-serif);
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .btn-tactile { transition: all 0.3s; }
+  .btn-tactile:active { transform: scale(0.97); }
+
+  .glass-nav {
+    position: sticky;
+    top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 50;
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    background-color: rgba(252, 250, 248, 0.8);
+    border: 0.8px solid var(--border-fine);
+    border-radius: var(--radius-lg);
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+  }
+  .dark .glass-nav, [data-theme='dark'] .glass-nav {
+    background-color: rgba(10, 10, 10, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer utilities {
+  .shadow-float {
+    box-shadow: 0 20px 50px -12px rgba(56, 49, 46, 0.12), 0 0 0 1px var(--border-fine);
+  }
+  .dark .shadow-float, [data-theme='dark'] .shadow-float {
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-fine);
+  }
+
+  .text-gradient {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to bottom right, var(--text-primary), var(--accent));
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb {
+  background: var(--border-fine);
+  border-radius: 10px;
+  border: 1px solid var(--bg-base);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Selection */
+::selection { background: var(--accent-dim); color: var(--accent); }
+
+/* ── Ripple and Weather Particles Logic ── */
+@keyframes splash-ripple {
+  0%   { transform: translateZ(0) scale(0.25); opacity: 0.55; }
+  100% { transform: translateZ(0) scale(3.5);  opacity: 0;    }
+}
+.rain-splash-ripple {
+  border: 1px solid rgba(160, 205, 255, 0.28);
+  border-radius: 50%;
+  opacity: 0;
+  animation: splash-ripple 1.3s ease-out infinite;
+  animation-duration: var(--rsr-dur, 1.3s);
+  animation-delay: var(--rsr-delay, 0s);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+@keyframes globe-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-globe-spin {
+  animation: globe-spin 18s linear infinite;
+  transform-origin: center center;
+}
+��─────────────── */
+:root .navbar-cta-primary {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(0,0,0,0.18);
+}
+.dark .navbar-cta-primary {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.15), 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Brute-Force Button Contrast Fix */
+.bg-accent, .btn-accent, button[class*="bg-accent"], [class*="bg-accent"], .button--primary {
+  color: #FFFFFF !important;
+}
+.bg-accent *, .btn-accent *, button[class*="bg-accent"] * {
+  color: #FFFFFF !important;
+}
