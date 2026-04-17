@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 import { ActionDock } from "@/components/ActionDock";
-import { SnowOverlay } from "@/components/SnowOverlay";
+import { WeatherOverlay } from "@/components/WeatherOverlay";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { EcosystemNav } from "@/components/EcosystemNav";
 import { CompanionProvider } from "@/components/companion/CompanionContext";
@@ -44,7 +44,7 @@ export default function RootLayout({
             <CompanionProvider>
               {children}
               <ActionDock />
-              <SnowOverlay />
+              <WeatherOverlay />
               <EcosystemNav />
               <CompanionShell
                 platform="H2"
