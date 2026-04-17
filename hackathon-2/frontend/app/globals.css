@@ -297,6 +297,48 @@ html {
   transform: translateZ(0);
 }
 
+/* ── Snow parallax layers ────────────────── */
+.snow-layer-1 { opacity: 0.80; filter: blur(0.5px); }
+.snow-layer-2 { opacity: 0.50; filter: blur(1.5px); }
+.snow-layer-3 { opacity: 0.30; filter: blur(3px); }
+
+/* ── Text protection filters for weather modes ── */
+[data-weather='storm'] h1, [data-weather='storm'] .text-gradient {
+  filter: drop-shadow(0 0 28px rgba(120, 140, 255, 0.55)) drop-shadow(0 12px 32px rgba(0, 0, 0, 0.95));
+}
+[data-weather='sunny'] h1, [data-weather='sunny'] .text-gradient {
+  filter: drop-shadow(0 0 24px rgba(255, 160, 50, 0.50)) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.85));
+}
+[data-weather='rain'] h1, [data-weather='rain'] .text-gradient {
+  filter: drop-shadow(0 0 20px rgba(80, 150, 230, 0.45)) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.90));
+}
+
+/* ── Rain / Storm: wet glass streaks on panels ───────────────────────────── */
+[data-weather='rain'] .glass-apple,
+[data-weather='storm'] .glass-apple,
+[data-weather='rain'] .glass-companion,
+[data-weather='storm'] .glass-companion {
+  position: relative;
+}
+
+[data-weather='rain'] .glass-apple::after, [data-weather='storm'] .glass-apple::after,
+[data-weather='rain'] .glass-companion::after, [data-weather='storm'] .glass-companion::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: repeating-linear-gradient(174deg, transparent 0px, transparent 28px, rgba(140, 190, 255, 0.045) 28px, rgba(140, 190, 255, 0.06) 30px, transparent 30px, transparent 55px);
+  z-index: 0;
+  animation: rain-streaks 3.5s ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+
+@keyframes rain-streaks {
+  0%   { opacity: 0.4; transform: translateY(0); }
+  100% { opacity: 0.9; transform: translateY(6px); }
+}
+
 @keyframes globe-spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -305,7 +347,8 @@ html {
   animation: globe-spin 18s linear infinite;
   transform-origin: center center;
 }
-��─────────────── */
+
+/* ── Button visibility insurance ─────────────────────────────────────────── */
 :root .navbar-cta-primary {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(0,0,0,0.18);
 }
